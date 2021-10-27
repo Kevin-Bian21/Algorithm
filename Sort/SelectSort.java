@@ -6,7 +6,8 @@ package Sort;
  **/
 public class SelectSort {
     /**
-     * 选择排序,时间复杂度 O(logN)
+     * 选择排序,时间复杂度 O(N^2) 稳定排序
+     * 从基准数之后开始选出最小的元素，和基准数比较，如果小与基准数则与其交换
      * @param array
      * @return int[]
      */
