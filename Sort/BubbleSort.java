@@ -6,7 +6,7 @@ package Sort;
  **/
 public class BubbleSort {
     /**
-     * 冒泡排序算法，时间复杂度 O(logN),稳定排序
+     * 冒泡排序算法，时间复杂度 O(n^2),稳定排序
      * @param array
      * @return int[]
      */
