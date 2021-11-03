@@ -30,7 +30,7 @@ public class MaxLengthChildStr {
      * @param args
      */
     public static void main(String[] args) {
-        String string = "mssd";
+        String string = "Hello,World!";
         MaxLengthChildStr maxLengthChildStr = new MaxLengthChildStr();
         System.out.println(maxLengthChildStr.solution(string));
         System.out.println(maxLengthChildStr.solutionWithQueue(string));

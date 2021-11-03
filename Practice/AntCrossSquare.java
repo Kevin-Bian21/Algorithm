@@ -8,6 +8,7 @@ public class AntCrossSquare {
     /*
         给定一个 n*m 的方格，一只蚂蚁从方格的左上角要走到方格的右下角有多少种走法。
         规定蚂蚁每次只能向下或向右移动一格
+        1. 当只有一个格子时，只能有一种走法，拓展一下当这个格子只有一行或者一列时也只有一种走法。
      */
     public static void main(String[] args) {
         AntCrossSquare antCrossSquare = new AntCrossSquare();
