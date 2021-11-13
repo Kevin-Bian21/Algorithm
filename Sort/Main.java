@@ -20,6 +20,7 @@ public class Main {
         ShellSort shellSort = new ShellSort();
         RadixSort radixSort = new RadixSort();
         HeapSort heapSort = new HeapSort();
+        CountSort countSort = new CountSort();
 //        System.out.println(Arrays.toString(bubbleSor.bubbleSorting(array)));
 //        System.out.println(Arrays.toString(bucketSort.bucketSorting(array)));
 //        System.out.println(Arrays.toString(selectSort.selectSorting(array)));
@@ -29,7 +30,8 @@ public class Main {
 //        System.out.println(Arrays.toString(mergeSort.mergeSorting(array)));
 //        System.out.println(Arrays.toString(shellSort.shellSorting(array)));
 //       radixSort.radixSort(array);
-        heapSort.heapSort(array);
+//        heapSort.heapSort(array);
+        countSort.countSort(array);
         System.out.println(Arrays.toString(array));
     }
 }
