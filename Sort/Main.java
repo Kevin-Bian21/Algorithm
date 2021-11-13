@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int[] array = {0,3,5,5,2,7,1,3,9,6,4};
+        int[] array = {0,3,5,5,2,7,1,3,9,6,14};
 
         BubbleSort bubbleSor = new BubbleSort();
         BucketSort bucketSort = new BucketSort();
@@ -18,6 +18,7 @@ public class Main {
         InsertSort insertSort = new InsertSort();
         MergeSort mergeSort = new MergeSort();
         ShellSort shellSort = new ShellSort();
+        RadixSort radixSort = new RadixSort();
 //        System.out.println(Arrays.toString(bubbleSor.bubbleSorting(array)));
 //        System.out.println(Arrays.toString(bucketSort.bucketSorting(array)));
 //        System.out.println(Arrays.toString(selectSort.selectSorting(array)));
@@ -25,6 +26,8 @@ public class Main {
 //        System.out.println(Arrays.toString(insertSort.insertSorting(array)));
 
 //        System.out.println(Arrays.toString(mergeSort.mergeSorting(array)));
-        System.out.println(Arrays.toString(shellSort.shellSorting(array)));
+//        System.out.println(Arrays.toString(shellSort.shellSorting(array)));
+       radixSort.radixSort(array);
+        System.out.println(Arrays.toString(array));
     }
 }
