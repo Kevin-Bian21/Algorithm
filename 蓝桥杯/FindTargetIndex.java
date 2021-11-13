@@ -15,7 +15,7 @@ public class FindTargetIndex {
     }
 
     public int[] targetIndex(int[] array, int target) {
-        maxHeap(array);
+        heapSort(array);
         for (int i = 0; i < array.length; i++) {
             int j = i;
             while (target == array[i]) {
@@ -27,24 +27,26 @@ public class FindTargetIndex {
         return new int[]{-1, -1};
     }
 
-    public int[] maxHeap(int[] array) {
+    public int[] heapSort(int[] array) {
         int len = array.length;
         int lastParentIndex = array.length / 2 - 1 ;
+        //首先实现大顶堆,即堆中的每一个父亲节点都比其左右子节点要大
         for (int i = lastParentIndex; i >= 0 ; i--) {
-            heapSort(array, i, len);
+            buildMaxHeap(array, i, len);
         }
 
+        //此时得到了大顶堆数组,大顶堆中的堆顶元素一定是数组中最大的元素,将其和末尾元素交换,接着将除过末尾元素其它元素重写使用堆排序,于是就可以得到拍好序数组元素
         for (int i = len - 1; i > 0; i--) {
             swap(array, 0, i);
             len --;
-            heapSort(array, 0, len);
+            buildMaxHeap(array, 0, len);
         }
 
         System.out.println(Arrays.toString(array));
         return array;
     }
 
-    private int[] heapSort(int[] array, int index, int len) {
+    private int[] buildMaxHeap(int[] array, int index, int len) {
         int largeIndex = index;
         int leftChildIndex = index * 2 + 1;
         int rightChildIndex = index * 2 + 2;
@@ -60,7 +62,7 @@ public class FindTargetIndex {
 
         swap(array, largeIndex, index);
 
-        heapSort(array, largeIndex, len);
+        buildMaxHeap(array, largeIndex, len);
         return array;
     }
 
