@@ -50,7 +50,7 @@ public class Orz {
 
     }
 
-    public int getMaxCalorie(){
+    public int getMaxCalorie() {
         Scanner sc = new Scanner(System.in);
         int v = sc.nextInt();
         int w = sc.nextInt();
@@ -58,12 +58,12 @@ public class Orz {
         int weight = w;
         int n = sc.nextInt();
         for (int i = 0; i < n; i++) {
-            priorityQueue.add(new Food(sc.nextInt(),sc.nextInt(),sc.nextInt()));
+            priorityQueue.add(new Food(sc.nextInt(), sc.nextInt(), sc.nextInt()));
         }
         List<Food> foods = new ArrayList<>();
-        for (int i = priorityQueue.size() ; i > 0 ; i--) {
+        for (int i = priorityQueue.size(); i > 0; i--) {
             Food food = priorityQueue.remove();
-            if (food.volume >  v || food.wight > w)
+            if (food.volume > v || food.wight > w)
                 continue;
             foods.add(food);
         }
@@ -71,27 +71,20 @@ public class Orz {
         int sumCalorie = 0;
         int count = foods.size();
 
-            for (int i = count - 1; i >= 0 ; i--) {
+        while (count > 0) {
+            for (int i = count - 1; i >= 0; i--) {
                 if (v >= foods.get(i).volume && w > foods.get(i).wight) {
                     v -= foods.get(i).volume;
                     w -= foods.get(i).wight;
-                    maxCalorie = Math.max(maxCalorie, maxCalorie + foods.get(i).calorie);
-                }
-                for (int j = i -1 ,k = j; j >= 0; j--) {
-                    if (v >= foods.get(j).volume && w > foods.get(j).wight) {
-                        v -= foods.get(j).volume;
-                        w -= foods.get(j).wight;
-                        maxCalorie = Math.max(maxCalorie, maxCalorie + foods.get(i).calorie);
-                    }
-                    if (j == 0) {
-                        j = k - 1;
-                        k -- ;
-                        v = volume - foods.get(i).volume;
-                        w = weight - foods.get(i).wight;
-                    }
+                    sumCalorie = Math.max(sumCalorie, sumCalorie + foods.get(i).calorie);
+                    maxCalorie = Math.max(maxCalorie, sumCalorie);
                 }
             }
-
+            count--;
+            v = volume;
+            w = weight;
+            sumCalorie = 0;
+        }
         return maxCalorie;
     }
 }
