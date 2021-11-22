@@ -11,7 +11,7 @@ public class MergeSort {
      * @param array
      * @return int[]
      */
-    public int[] mergeSorting(int[] array) {
+    public int[] sort(int[] array) {
         if (array == null || array.length < 1) {
             return new int[0];
         }
@@ -26,6 +26,7 @@ public class MergeSort {
         int mid = (left + right) / 2;
         divideSortMerge(array, left, mid);
         divideSortMerge(array, mid+1, right);
+        //将分组中的元素按大小进行合并
         merge(array, left, mid, right);
     }
 
