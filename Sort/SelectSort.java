@@ -11,24 +11,25 @@ public class SelectSort {
      * @param array
      * @return int[]
      */
-    public int[] selectSorting(int[] array){
+    public int[] sort(int[] array){
         int i;
         int j;
-        int index = 0;
         if (array == null || array.length <= 0)
             return new int[0];
         for (i = 0; i < array.length; i++) {
-            int min = array[i];
+            //定位最小的元素所在下标
+            int minIndex = i;
+            //从基准数之后确定出最小的元素的下标
             for (j = i+1; j < array.length; j++) {
-                if (min > array[j]) {
-                    min = array[j];
-                    index = j;
+                if (array[minIndex] > array[j]) {
+                    minIndex = j;
                 }
             }
-            if (array[i] != min) {
+            //如果该最小元素不是该基准数本身的话，就说明有比该基准数小的元素，因此交换
+            if (array[i] != array[minIndex]) {
                 int temp = array[i];
-                array[i] = min;
-                array[index] = temp;
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
             }
         }
         return array;
