@@ -35,6 +35,10 @@ public class Fibonacci {
 
     //由于递归需要做很多重复计算，所以采用动态规划来实现，以减少不必要的重复计算过程
     public int fib(int n) {
+        if (n == 0)
+            return 0;
+        if (n == 1)
+            return 1;
         /*
             1. 确定dp数组及i的含义 dp[i]表示第i个斐波那契数为多少
             2. 确定状态转移方程 dp[i] = dp[i - 1] + dp[i - 2];
