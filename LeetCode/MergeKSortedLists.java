@@ -1,5 +1,9 @@
 package LeetCode;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author BianWenKai
  * @DATE 2021/11/26 - 17:45
@@ -15,31 +19,23 @@ public class MergeKSortedLists {
     }
 
     /*
-        执行用时：190 ms, 在所有 Java 提交中击败了11.05%的用户
-        内存消耗：40.1 MB, 在所有 Java 提交中击败了56.44%的用户
+        执行用时：4 ms, 在所有 Java 提交中击败了71%的用户
+        内存消耗：40.1 MB, 在所有 Java 提交中击败了62.65%的用户
         通过测试用例：133 / 133
      */
     public ListNode mergeKLists(ListNode[] lists) {
 
         if (lists.length <= 0)
             return new ListNode().next;
-        if (lists.length <= 1) {
-            return lists[0];
+        Queue<ListNode> queue = new LinkedList<>(Arrays.asList(lists));
+        //当队列中只剩一个链表时，说明合并完毕
+        while (queue.size() >= 2){
+            queue.add(mergeKLists(queue.remove(),queue.remove()));
         }
-        if (lists.length <= 2) {
-            return mergeKLists(lists, lists[0], lists[1]);
-        }
-        ListNode[] list = new ListNode[lists.length - 1];
-        list[0] = mergeKLists(lists, lists[0], lists[1]);
-        ListNode head = new ListNode();
-        for (int i = 2; i < lists.length; i++) {
-            head = mergeKLists(lists, list[i - 2], lists[i]);
-            list[i - 1] = head;
-        }
-        return head;
+        return queue.remove();
     }
 
-    public ListNode mergeKLists(ListNode[] lists, ListNode l1, ListNode l2) {
+    public ListNode mergeKLists(ListNode l1, ListNode l2) {
         //创建一个新的链表用来合并链表
         ListNode newList = new ListNode();
         //当只要有一个链表为空时，就返回另一个，这样就排除了空链表的情况
