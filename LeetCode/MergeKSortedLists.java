@@ -7,6 +7,7 @@ import java.util.Queue;
 /**
  * @author BianWenKai
  * @DATE 2021/11/26 - 17:45
+<<<<<<< HEAD
  *
  * 给你一个链表数组，每个链表都已经按升序排列。
  *
@@ -24,6 +25,8 @@ import java.util.Queue;
  * 1->1->2->3->4->4->5->6
  *
  * 链接：https://leetcode-cn.com/problems/merge-k-sorted-lists
+=======
+>>>>>>> 485896f759ae2bffd68a77dfc0ed65ec58da53fd
  **/
 public class MergeKSortedLists {
 
