@@ -13,7 +13,7 @@ public class BucketSort {
      * @param array
      */
 
-    public int[] bucketSort(int[] array) {
+    public int[] sort(int[] array) {
         int BUCKET_SIZE = 10;  //桶的数量默认为10
         if (array == null || array.length <= 0)
             return new int[0];
@@ -31,7 +31,7 @@ public class BucketSort {
         int index = 0;
         for (int i = 0; i < buckets.length; i++) {
             if (buckets[i].length != 0) {
-                buckets[i] = new SelectSort().selectSorting(buckets[i]);
+                buckets[i] = new SelectSort().sort(buckets[i]);
                 for (int j = 0; j < buckets[i].length; j++) {
                     array[index ++] = buckets[i][j];
                 }

@@ -22,7 +22,7 @@ public class Main {
         HeapSort heapSort = new HeapSort();
         CountSort countSort = new CountSort();
 //        System.out.println(Arrays.toString(bubbleSor.bubbleSorting(array)));
-        System.out.println(Arrays.toString(bucketSort.bucketSort(array)));
+        System.out.println(Arrays.toString(bucketSort.sort(array)));
 //        System.out.println(Arrays.toString(selectSort.selectSorting(array)));
 //        System.out.println(Arrays.toString(quickSort.quickSorting(array)));
 //        System.out.println(Arrays.toString(insertSort.insertSorting(array)));
