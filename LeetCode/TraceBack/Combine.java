@@ -40,6 +40,13 @@ public class Combine {
         combine(n, k, 1, new ArrayList<>());
         return result;
     }
+
+    /**
+     * @param n 相当于树的宽度
+     * @param k k相当于树的深度
+     * @param startIndex 本次搜索起始位置
+     * @param list 存放满足条件的节点
+     */
     private void combine(int n, int k, int startIndex, List<Integer> list) {
         //终止条件为搜索到解空间树的叶子节点，即"list.size() == k"
         if (list.size() >= k) {
